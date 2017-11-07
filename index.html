@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <title>418 | Chamomile</title>
+    <link rel="shortcut icon" href="assets/favicon.ico" type="image/x-icon">
+    <link rel="icon" href="assets/favicon.ico" type="image/x-icon">
+    <link href="https://fonts.googleapis.com/css?family=Raleway" rel="stylesheet">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.98.0/css/materialize.min.css">
+    <link rel="stylesheet" href="css/main.css">
+    <script src="js/Chart.min.js"></script>
+    <script src="https://code.jquery.com/jquery-2.1.2.min.js" crossorigin="anonymous">
+    </script>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.98.0/js/materialize.min.js"></script>
+
+    <script>
+        $(document).ready(function() {
+            $('select').material_select();
+        });
+    </script>
+</head>
+
+<body>
+    <img src="assets/418.jpg" class="img-circle" height="100" width="100">
+    <h1 id="title">Chamomile</h1>
+    <h5>a student life analytics app</h5>
+    <div class="row" style="overflow-x: hidden;">
+        <form style="margin-left: 36.5%;" class="col s12">
+            <div class="row">
+                <div class="input-field col s3">
+                    <!-- Option 3 is base value, anything below this will decrease the sleep index
+          by 1 or 2, anything above will add 1 or 2 -->
+                    <select id="q1">
+            <option value="" disabled selected>Choose one</option>
+            <option class="1" gradesChange="0" sleepChange="-50" leisureChange="0" value="1">Less than 5 hours</option><!-- -2 -->
+            <option class="1" gradesChange="0" sleepChange="-25" leisureChange="0"value="2">5-6 hours</option><!-- -1 -->
+            <option class="1" gradesChange="0" sleepChange="0" leisureChange="0" value="3">7-9 hours</option><!-- 0 -->
+            <option class="1" gradesChange="0" sleepChange="25" leisureChange="0"value="4">10-12 hours</option><!-- 1 -->
+            <option class="1" gradesChange="0" sleepChange="50" leisureChange="0"value="5">More than 12 hours</option><!-- 2 -->
+          </select>
+                    <label>How many hours of sleep did you get?</label>
+                </div>
+            </div>
+            <div class="row">
+                <div class="input-field col s3">
+                    <!-- Option 1 is base value, anything above this will add to the school index -->
+                    <select id="q2">
+            <option value="" disabled selected>Choose one</option>
+            <option class="2" gradesChange="-25" sleepChange="0" leisureChange="0" value="1">None</option> <!-- 0 -->
+            <option class="2" gradesChange="6" sleepChange="0" leisureChange="-4" value="2">1-2 hours</option> <!-- 1 -->
+            <option class="2" gradesChange="12" sleepChange="0" leisureChange="-8" value="3">3-4 hours</option> <!-- 2 -->
+            <option class="2" gradesChange="20" sleepChange="0" leisureChange="-12" value="4">5-6 hours</option> <!-- 3 -->
+            <option class="2" gradesChange="25" sleepChange="0" leisureChange="-16" value="5">More than 6 hours</option> <!-- 4 -->
+          </select>
+                    <label>How many hours did you spend in class?</label>
+                </div>
+            </div>
+            <div class="row">
+                <div class="input-field col s3">
+                    <!-- Option 1 is base value, anything above this will decrease school and fun indexes -->
+                    <select id="q3">
+            <option value="" disabled selected>Choose one</option>
+            <option class="3" gradesChange="0" sleepChange="0" leisureChange="0" value="1">None</option> <!-- 0 -->
+            <option class="3" gradesChange="-3" sleepChange="0" leisureChange="-4" value="2">1-2 hours</option> <!-- 1 -->
+            <option class="3" gradesChange="-4" sleepChange="0" leisureChange="-8" value="3">3-4 hours</option> <!-- 2 -->
+            <option class="3" gradesChange="-6" sleepChange="0" leisureChange="-12" value="4">5-6 hours</option> <!-- 3 -->
+            <option class="3" gradesChange="-12" sleepChange="0" leisureChange="-16" value="5">More than 6 hours</option> <!-- 4 -->
+          </select>
+                    <label>How many hours did you spend working?</label>
+                </div>
+            </div>
+            <div class="row">
+                <div class="input-field col s3">
+                    <!-- Option 1 is base value, anything above this will add to school index and
+              decrease fun index -->
+                    <select id="q4">
+            <option value="" disabled selected>Choose one</option>
+            <option class="4" gradesChange="-25" sleepChange="0" leisureChange="0" value="1">None</option> <!-- 0, 0 -->
+            <option class="4" gradesChange="6" sleepChange="0" leisureChange="-4" value="2">1-2 hours</option> <!-- 1, -1 -->
+            <option class="4" gradesChange="12" sleepChange="0" leisureChange="-8" value="3">3-4 hours</option> <!-- 2, -2 -->
+            <option class="4" gradesChange="20" sleepChange="0" leisureChange="-12" value="4">5-6 hours</option> <!-- 3, -3 -->
+            <option class="4" gradesChange="25" sleepChange="0" leisureChange="-16" value="5">More than 6 hours</option> <!-- 4, -4 -->
+          </select>
+                    <label>How many hours did you spend studying?</label>
+                </div>
+            </div>
+            <div class="row">
+                <div class="input-field col s3">
+                    <!-- Option 1 is base value, anything above this will add to fun index and
+              decrease school index-->
+                    <select id="q5">
+            <option value="" disabled selected>Choose one</option>
+            <option class="5" gradesChange="0" sleepChange="0" leisureChange="0" value="1">None</option> <!-- 0,0 -->
+            <option class="5" gradesChange="-3" sleepChange="0" leisureChange="4" value="2">1-2 hours</option> <!-- 1, -1 -->
+            <option class="5" gradesChange="-6" sleepChange="0" leisureChange="8" value="3">3-4 hours</option> <!-- 2, -2 -->
+            <option class="5" gradesChange="-9" sleepChange="0" leisureChange="12" value="4">5-6 hours</option> <!-- 3, -3 -->
+            <option class="5" gradesChange="-12" sleepChange="0" leisureChange="16" value="5">More than 6 hours</option> <!-- 4, -4 -->
+          </select>
+                    <label>How many hours did you spend on entertainment during the day?</label>
+                </div>
+            </div>
+            <div class="row">
+                <div class="input-field col s3">
+                    <!-- Option 1 is base value, anything above this will add to fun index and
+              decrease sleep index -->
+                    <select id="q6">
+            <option value="" disabled selected>Choose one</option>
+            <option class="6" gradesChange="0" sleepChange="0" leisureChange="0"value="1">None</option> <!-- 0,0 -->
+            <option class="6" gradesChange="-3" sleepChange="0" leisureChange="4"value="2">1-2 hours</option> <!-- 1, -1 -->
+            <option class="6" gradesChange="-6" sleepChange="0" leisureChange="8"value="3">3-4 hours</option> <!-- 2, -2 -->
+            <option class="6" gradesChange="-9" sleepChange="0" leisureChange="12"value="4">5-6 hours</option> <!-- 3, -3 -->
+            <option class="6" gradesChange="-12" sleepChange="0" leisureChange="16"value="5">More than 6 hours</option> <!-- 4, -4 -->
+          </select>
+                    <label>How much time did you spend on entertainment during the evening?</label>
+                </div>
+            </div>
+            <div class="row">
+                <div class="input-field col s3">
+                    <!-- Option 1 is base value, anything above this adds to fun index -->
+                    <select id="q7">
+            <option value="" disabled selected>Choose one</option>
+            <option class="7" gradesChange="0" sleepChange="0" leisureChange="0"value="1">None</option> <!-- 0 -->
+            <option class="7" gradesChange="-3" sleepChange="0" leisureChange="4"value="2">1-2 hours</option> <!-- 1 -->
+            <option class="7" gradesChange="-6" sleepChange="0" leisureChange="8"value="3">3-4 hours</option> <!-- 2 -->
+            <option class="7" gradesChange="-9" sleepChange="0" leisureChange="12"value="4">5-6 hours</option> <!-- 3 -->
+            <option class="7" gradesChange="-12" sleepChange="0" leisureChange="16"value="5">More than 6 hours</option> <!-- 4 -->
+          </select>
+                    <label>How many hours did you spend socializing with others?</label>
+                </div>
+            </div>
+        </form>
+    </div>
+  <div id="graphs">
+    <canvas id="activityTriangle" width="600" height="600"></canvas>
+    <h1>Your Academic Index is <strong><span id="grades" onclick="displaySchool()"></span></strong></h1>
+    <canvas id="gradesGraph" width="300" height="300" style="display: none"></canvas>
+    <p id="gradesInfo"></p>
+    <h1>Your Sleep Index is <strong><span id="sleep" onclick="displaySleep()"></span></strong></h1>
+    <canvas id="sleepGraph" width="300" height="300" style="display: none"></canvas>
+    <p id="sleepInfo"></p>
+    <h1>Your Leisure Index is <strong><span id="social" onclick="displaySocial()"></span></strong></h1>
+    <canvas id="leisureGraph" width="300" height="300" style="display: none"></canvas>
+    <p id="leisureInfo"></p>
+    <script src="js/visualizer.js"></script>
+  </div>
+  <button onclick="init()" class="btn btn-info" role="button">Analyze Me!</button>
+  <button onclick="toggleGraph()" class="btn btn-info" role="button">Show/Hide Graphs</button>
+</body>
+
+</html>
